@@ -16,6 +16,12 @@ namespace CheeseMVC.Controllers
             context = dbContext;
         }
 
+        public IActionResult Index()
+        {
+            List<CheeseCategory> cheeseCategories = context.Categories.ToList();
+            return View(cheeseCategories);
+        }
+
         public IActionResult Add()
         {
             AddCategoryViewModel addCategoryViewModel = new AddCategoryViewModel();
