@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace CheeseMVC.Controllers
 {
-    public class CatagoryController : Controller
+    public class CategoryController : Controller
     {
         private readonly CheeseDbContext context;
 
-        public CatagoryController(CheeseDbContext dbContext)
+        public CategoryController(CheeseDbContext dbContext)
         {
             context = dbContext;
         }
@@ -33,11 +33,12 @@ namespace CheeseMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                CheeseCategory newCatagory = new CheeseCategory
+                CheeseCategory newCategory = new CheeseCategory
                 {
                     Name = addCategoryViewModel.Name
                 };
 
+                context.Categories.Add(newCategory);
                 context.SaveChanges();
                 return Redirect("/Category");
             }
