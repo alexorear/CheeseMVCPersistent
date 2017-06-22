@@ -1,0 +1,12 @@
+﻿@model CheeseMVC.ViewModels.AddItemViewModel
+
+<h1>Add New Item to Menu: @Model.Menu.Name</h1>
+
+<form asp-controller="Menu" asp-action="AddItem" method="post">
+    <label asp-name="Cheeses"></label>
+    <input class="form-control" asp-for="Cheeses" />
+    <span asp-validation-for="Cheeses"></span>
+
+    <input hidden name="MenuID" value="@Model.Menu.ID" />
+    <input type="submit" value="Add Cheese" />
+</form>
