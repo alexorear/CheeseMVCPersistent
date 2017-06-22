@@ -9,6 +9,6 @@ namespace CheeseMVC.Models
         public CheeseCategory Category { get; set; }
         public int ID { get; set; }
 
-        public IList<CheeseMenu> CheeseMenu { get; set; }
+        public IList<CheeseMenu> CheeseMenus { get; set; } = new List<CheeseMenu>();
     }
 }
