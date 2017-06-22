@@ -1,0 +1,21 @@
+﻿@model CheeseMVC.ViewModels.ViewCategoryViewModel
+
+<h1>@Model.Category.Name</h1>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <td>Category</td>
+    </tr>
+
+    @foreach (var cheese in Model.Cheeses)
+    {
+        <tr>
+            <td>@cheese.Name</td>
+            <td>@cheese.Description</td>
+            <td>@cheese.Category.Name</td>
+        </tr>
+    }
+</table>

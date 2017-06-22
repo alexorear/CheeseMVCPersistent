@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CheeseMVC.ViewModels;
 using CheeseMVC.Data;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace CheeseMVC.Controllers
 {
@@ -44,6 +45,18 @@ namespace CheeseMVC.Controllers
             }
 
             return View(addCategoryViewModel);
+        }
+
+        public IActionResult ViewCategory(int id)
+        {
+            List<Cheese> cheeses = context
+                .Cheeses
+                .Where(c => c.CategoryID == id)
+                .ToList();
+
+            CheeseCategory category = context.Categories.Single(c => c.ID == id);
+
+            return View(new ViewCategoryViewModel(category, cheeses));
         }
     }
 }

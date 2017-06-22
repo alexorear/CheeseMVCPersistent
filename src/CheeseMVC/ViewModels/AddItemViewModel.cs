@@ -11,10 +11,6 @@ namespace CheeseMVC.ViewModels
     public class AddItemViewModel
     {
         public Menu Menu { get; set; }
-
-        [Required]
-        [Display (Name = "Select Cheese")]
-        []
         public List<SelectListItem> Cheeses { get; set; } 
 
         public int CheeseID { get; set; }
@@ -27,16 +23,14 @@ namespace CheeseMVC.ViewModels
 
             Cheeses = new List<SelectListItem>();
 
-            foreach (Cheese cheese in cheeses)
+            foreach (var cheese in cheeses)
             {
-                Cheeses.Add(
-                     new SelectListItem
+                Cheeses.Add(new SelectListItem
                      {
                          Value = cheese.ID.ToString(),
-                         Text = cheese.Name
+                         Text = cheese.Name.ToString()
                      });                   
                 }
             }
         }
     }
-}

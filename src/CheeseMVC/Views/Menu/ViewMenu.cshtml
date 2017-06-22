@@ -1,6 +1,6 @@
 ﻿@model CheeseMVC.ViewModels.ViewMenuViewModel
 
-<h1>@Model.Menu</h1>
+<h1>@Model.Menu.Name</h1>
 
 <ul>
 @foreach (var item in Model.Items)
@@ -14,4 +14,4 @@
     <p>No Menu Items</p>
 }
 
-<p><a asp-controller="Menu" asp-action="AddItem" asp-route-id="Model.Menu.ID">Add Cheese</a></p>
+<p><a asp-controller="Menu" asp-action="AddItem" asp-route-id="@Model.Menu.ID">Add Cheese</a></p>
